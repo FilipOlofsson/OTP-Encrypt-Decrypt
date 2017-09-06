@@ -12,12 +12,13 @@
  */
 import java.io.File;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 public class OTP {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
 
         if(args.length == 0) {
-            GUI gui = new GUI(200, 100, "xd");
+            Controller controller = new Controller(200, 130, "");
         } else if(args.length == 4) {
             if(args[0].equals("-c") || args[0].equals("-d")) {
 
@@ -46,9 +47,8 @@ public class OTP {
         }
     }
 
-
     /*
-        Bad solution to deal with end users, a better solution would be using exceptions but this works.
+    Print error message
      */
     private static void incorrectUsage() {
         System.out.println("Incorrect usage. You can either use no arguments and launch with a GUI or you can use it with the command prompt.");
